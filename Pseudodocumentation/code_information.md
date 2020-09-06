@@ -30,7 +30,7 @@ Displays the board on the terminal.
 
 **Private.** Generates a single row with a white square on the left.
 
-### 4. complete_board
+### 4. #complete_board
 
 **Private.** Generates the complete board array using #row and #alt_row.
 
