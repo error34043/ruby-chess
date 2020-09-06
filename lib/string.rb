@@ -22,10 +22,4 @@ class String
   def bg_blue;        use_code(44) end
   def bg_magenta;     use_code(45) end
   def bg_teal;        use_code(46) end
-
-  def invert;       use_code(7) end
-
-  def no_colors
-    self.gsub /\e\[\d+m/, ""
-  end
 end
