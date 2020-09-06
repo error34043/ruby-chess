@@ -20,7 +20,7 @@ Code file: [lib/board.rb](https://github.com/error34043/ruby-chess/blob/master/l
 
 ### 1. #initialize - TO BE REWORKED
 
-Generates and stores an empty board to the @current_board instance variable.
+Calls #starting_board.
 
 ### 2. #display
 
@@ -30,10 +30,18 @@ Displays the board on the terminal.
 
 **Private.** Generates a single row with a white square on the left.
 
-### 4. alt_row
-
-**Private.** Generates a single row with a black square on the left.
-
-### 5. complete_board
+### 4. complete_board
 
 **Private.** Generates the complete board array using #row and #alt_row.
+
+### 5. #add_starting_pieces(array)
+
+**Private.** Adds the chess pieces in their appropriate positions of the argument array for the starting state of the chess board.
+
+### 6. #fill_board(array)
+
+**Private.** Adds appropriate background colors to each square of the chess board given to the method as the array argument.
+
+### 7. #starting_board
+
+**Private.** Generates and stores an empty board to the @current_board instance variable.
