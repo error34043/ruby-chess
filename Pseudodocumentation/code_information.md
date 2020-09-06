@@ -18,7 +18,7 @@ Uses #use_code to return a string with the specified background color when print
 
 Code file: [lib/board.rb](https://github.com/error34043/ruby-chess/blob/master/lib/board.rb)
 
-### 1. #initialize - TO BE REWORKED
+### 1. #initialize
 
 Calls #starting_board.
 
