@@ -32,7 +32,7 @@ Displays the board on the terminal.
 
 ### 4. alt_row
 
-**Prinvate.** Generates a single row with a black square on the left.
+**Private.** Generates a single row with a black square on the left.
 
 ### 5. complete_board
 
