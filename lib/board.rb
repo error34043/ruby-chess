@@ -23,11 +23,10 @@ class Board
   def valid_move?(move)
     return false unless move.length == 2
     col_letter = move[0].upcase
-    row = move[1].to_i
     return false unless ('A'..'H').include? col_letter
-    return false unless (1..8).include? row
-    column = column_letter_to_column(col_letter)
-    if @current_board[row][column] == '   '
+    move_array = convert_move_to_array_coords(move)
+    return false unless (1..8).include? move_array[0]
+    if @current_board[move_array[0]][move_array[1]] == '   '
       true
     # Add a condition that returns true if its part of the valid move list to account for when a piece is can take an opponent piece off the board
     else
@@ -35,14 +34,12 @@ class Board
     end
   end
 
-  def add_move_to_board(start, destination)
-    start_column = column_letter_to_column(start[0].upcase)
-    start_row = start[1].to_i
-    destination_column = column_letter_to_column(destination[0].upcase)
-    destination_row = destination[1].to_i
-    temp = @current_board[start_row][start_column]
-    @current_board[destination_row][destination_column] = temp
-    @current_board[start_row][start_column] = '   '
+  def add_move_to_board(origin, destination)
+    start_coords = convert_move_to_array_coords(origin)
+    destination_coords = convert_move_to_array_coords(destination)
+    temp = @current_board[start_coords[0]][start_coords[1]]
+    @current_board[destination_coords[0]][destination_coords[1]] = temp
+    @current_board[start_coords[0]][start_coords[1]] = '   '
   end
 
   private
@@ -142,5 +139,12 @@ class Board
       column = 9
     end
     column
+  end
+
+  def convert_move_to_array_coords(move)
+    move_array = []
+    move_array << move[1].to_i
+    move_array << column_letter_to_column(move[0].upcase)
+    move_array
   end
 end

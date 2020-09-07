@@ -57,3 +57,7 @@ Displays the board on the terminal.
 ### 10. add_move_to_board(start, destination)
 
 When start position and destination position are given as arguments, this method shifts the piece from the start position to the destination position.
+
+### 11. convert_move_to_array_coords(move)
+
+**Private.** Converts the move inputted by the user in corresponding coordinates of the @current_board array.
