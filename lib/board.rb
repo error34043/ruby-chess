@@ -35,6 +35,16 @@ class Board
     end
   end
 
+  def add_move_to_board(start, destination)
+    start_column = column_letter_to_column(start[0].upcase)
+    start_row = start[1].to_i
+    destination_column = column_letter_to_column(destination[0].upcase)
+    destination_row = destination[1].to_i
+    temp = @current_board[start_row][start_column]
+    @current_board[destination_row][destination_column] = temp
+    @current_board[start_row][start_column] = '   '
+  end
+
   private
 
   def row

@@ -53,3 +53,7 @@ Displays the board on the terminal.
 ### 9. valid_move?(move)
 
 **Private.** Checks if the destination square in a move is valid.
+
+### 10. add_move_to_board(start, destination)
+
+When start position and destination position are given as arguments, this method shifts the piece from the start position to the destination position.

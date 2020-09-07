@@ -42,4 +42,17 @@ describe Board do
       end
     end
   end
+
+  describe '#add_move_to_board' do
+    context 'when start position and destination position are given as arguments' do
+      before do
+        board.add_move_to_board('a2', 'a4')
+      end
+
+      it 'shifts the piece from start position to destination position' do
+        board_array = board.instance_variable_get(:@current_board)
+        expect(board_array[4][2]).to eql("\e[30m ♟︎ \e[0m")
+      end
+    end
+  end
 end
