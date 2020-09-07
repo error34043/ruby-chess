@@ -45,3 +45,11 @@ Displays the board on the terminal.
 ### 7. #starting_board
 
 **Private.** Generates and stores an empty board to the @current_board instance variable.
+
+### 8. column_letter_to_column(col_letter)
+
+**Private.** Takes a letter coordinate for the column and returns the appropriate column index in the @current_board array.
+
+### 9. valid_move?(move)
+
+**Private.** Checks if the destination square in a move is valid.
