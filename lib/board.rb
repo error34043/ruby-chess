@@ -1,23 +1,26 @@
 # frozen_string_literal: true
 
 require_relative 'string.rb'
+require_relative 'shared_methods.rb'
 
 class Board
   attr_reader :WHITE_PIECES, :BLACK_PIECES
-  attr_accessor :current_board
+  attr_accessor :current_board, :turn_valid_move_list
+
+  include SharedMethods
 
   WHITE_PIECES = ['♔', '♕', '♖', '♗', '♘', '♙']
   BLACK_PIECES = ['♚', '♛', '♜', '♝', '♞', '♟︎']
-  @turn_valid_move_list = []
 
   def initialize
     starting_board
   end
 
   def display
-  current_board_copy = @current_board
-  fill_board(current_board_copy)
-  puts current_board_copy.join('')
+    current_board_copy = []
+    @current_board.each { |square| current_board_copy << square.dup }
+    fill_board(current_board_copy)
+    puts current_board_copy.join('')
   end
 
   def valid_move?(move)
@@ -28,7 +31,7 @@ class Board
     return false unless (1..8).include? move_array[0]
     if @current_board[move_array[0]][move_array[1]] == '   '
       true
-    # Add a condition that returns true if its part of the valid move list to account for when a piece is can take an opponent piece off the board
+    # Add a condition that returns true if its part of the valid move list to account for when a piece is can take an opponent piece off the board in GamePlay class
     else
       false
     end
@@ -117,34 +120,5 @@ class Board
   def starting_board
     @current_board = complete_board
     add_starting_pieces(@current_board)
-  end
-
-  def column_letter_to_column(col_letter)
-    case col_letter
-    when 'A'
-      column = 2
-    when 'B'
-      column = 3
-    when 'C'
-      column = 4
-    when 'D'
-      column = 5
-    when 'E'
-      column = 6
-    when 'F'
-      column = 7
-    when 'G'
-      column = 8
-    when 'H'
-      column = 9
-    end
-    column
-  end
-
-  def convert_move_to_array_coords(move)
-    move_array = []
-    move_array << move[1].to_i
-    move_array << column_letter_to_column(move[0].upcase)
-    move_array
   end
 end
