@@ -1,3 +1,4 @@
+### Yeah, none of these work anymore. Gotta fix the tests later.
 # frozen_string_literal: true
 
 require './lib/board.rb'
